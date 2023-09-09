@@ -1,5 +1,7 @@
 /* reset.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@300;400&display=swap');
+
 /* Box sizing */
 *,
 *:before,
@@ -8,7 +10,8 @@
 }
 
 html {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Handjet', cursive;
+    letter-spacing: 0.1em;
 }
 
 /* Remove default margins and paddings */

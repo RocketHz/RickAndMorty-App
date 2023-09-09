@@ -28,9 +28,9 @@ function App() {
     <>
       <div className='container container-flex'>
         <h1>Rick And Morty</h1>
-        <form onSubmit={handleSubmit}>
+        <form className="input-container" onSubmit={handleSubmit}>
           <input ref={inputSearch} type="text" />
-          <button>Search</button>
+          <button className="button">Search</button>
         </form>
           {
               hasError 
