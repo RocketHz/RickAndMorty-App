@@ -28,6 +28,10 @@ const ResidentCard = ({ url }) => {
         return '👨‍👩‍👧‍👦';
       } else if (species === 'Alien') {
         return '👽';
+      } else if (species === 'Mythological Creature') {
+        return '🦄';
+      } else if (species === 'Robot') {
+        return '🤖';
       } else if (species === 'unknown') {
         return '❓';
       } else {
