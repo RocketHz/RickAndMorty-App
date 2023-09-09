@@ -47,15 +47,15 @@ function App() {
           <ul>
             {suggestions?.map((location) => (
               <li key={(location.id)}>{console.log(location.name)}</li>
-            ))}
+           ))}
           </ul>
           <button className="button">Search</button>
         </form>
-          {/* {
+          {
               hasError 
                 ? <h2>Hey! you must provide an id form 1 to 126 T_T </h2> 
-                :  */}
-            {/* <> */}
+                : 
+            <>
               <LocationInfo 
                 location={location}
               />
@@ -69,8 +69,8 @@ function App() {
                   ))
                 }
               </div>
-            {/* </> */}
-          {/* } */}
+            </>
+          }
       </div>
     </>
   )
