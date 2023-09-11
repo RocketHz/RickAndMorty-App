@@ -11,9 +11,8 @@ function App() {
   const [inputLocation, setInputLocation] = useState(getRandomNumber(126))
   const [suggestions, setSuggestions] = useState([])
 
-  const url = `https://rickandmortyapi.com/api/location/${inputLocation}`
+  const url = `https://rickandmortyapi.com/api/location/${inputLocation || 'lanza un error'}`
   const [ location, getLocations, hasError ] = useFetch(url)
-  const allLocations = location ? [location] : [];
 
   useEffect(() => {
     getLocations()
@@ -30,7 +29,7 @@ function App() {
     e.preventDefault()
     setInputLocation(inputSearch.current.value.trim())
 
-    const filteredLocations = allLocations.filter((location) => location.name.toLowerCase().includes(inputSearch.current.value.toLowerCase())
+    const filteredLocations = location.filter((location) => location.name.toLowerCase().includes(inputSearch.current.value.trim().toLowerCase())
     );
 
     setSuggestions(filteredLocations);
@@ -45,9 +44,11 @@ function App() {
         <form className="input-container" onSubmit={handleSubmit}>
           <input ref={inputSearch} type="text" onChange={handleInputChange}/>
           <ul>
-            {suggestions?.map((location) => (
-              <li key={(location.id)}>{console.log(location.name)}</li>
-           ))}
+            {suggestions?.map(location => (
+              <li key={location.id}>
+                {location.name}
+              </li>
+          ))}
           </ul>
           <button className="button">Search</button>
         </form>
@@ -61,7 +62,7 @@ function App() {
               />
               <div className='container-resident'>
                 {
-                  location?.residents?.map(url => ( 
+                  location?.residents.map(url => ( 
                     <ResidentCard 
                       key={url}
                       url={url}
